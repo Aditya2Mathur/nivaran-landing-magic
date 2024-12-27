@@ -8,16 +8,15 @@ export const Header = () => {
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
             <a href="/" className="flex items-center space-x-2">
-              <img src="/lovable-uploads/8e78ff75-e716-440c-b93e-6289a4353dee.png" alt="Nivaran Logo" className="h-8" />
               <span className="text-xl font-bold text-primary">Nivaran</span>
             </a>
           </div>
           
           <nav className="hidden md:flex items-center space-x-8">
-            <a href="/" className="text-gray-600 hover:text-primary transition-colors">Overview</a>
-            <a href="/solution" className="text-gray-600 hover:text-primary transition-colors">Solution</a>
-            <a href="/plans" className="text-gray-600 hover:text-primary transition-colors">Plans</a>
-            <a href="/referrals" className="text-gray-600 hover:text-primary transition-colors">Referrals</a>
+            <a href="#" className="text-gray-600 hover:text-primary transition-colors">Home</a>
+            <a href="#" className="text-gray-600 hover:text-primary transition-colors">About</a>
+            <a href="#" className="text-gray-600 hover:text-primary transition-colors">Blogs</a>
+            <a href="#" className="text-gray-600 hover:text-primary transition-colors">Contact</a>
             <Button>Book Appointment</Button>
           </nav>
           
