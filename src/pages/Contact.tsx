@@ -6,7 +6,9 @@ const Contact = () => {
   return (
     <div className="min-h-screen bg-white">
       <Header />
-      <ContactSection />
+      <section className="mt-20">
+        <ContactSection />
+      </section>
       <Footer />
     </div>
   );

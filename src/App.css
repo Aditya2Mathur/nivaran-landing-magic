@@ -40,3 +40,74 @@
 .read-the-docs {
   color: #888;
 }
+
+/* Add modern styles */
+body {
+  font-family: 'Arial', sans-serif; /* Use a modern font */
+  background-color: #f8f9fa; /* Light background for a clean look */
+  color: #343a40; /* Dark text for contrast */
+  transition: background-color 0.3s ease; /* Smooth background transition */
+}
+
+/* Scroll animation */
+.scroll-animation {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.scroll-animation.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.blob {
+  position: absolute;
+  filter: blur(80px);
+  opacity: 0.7;
+  transform-origin: center;
+  animation: blob-float 20s ease-in-out infinite;
+}
+
+.blob-purple {
+  width: 400px;
+  height: 400px;
+  background: #8b5cf6;
+  top: -100px;
+  right: -100px;
+  animation-delay: 0s;
+}
+
+.blob-blue {
+  width: 350px;
+  height: 350px;
+  background: #3b82f6;
+  bottom: -50px;
+  left: -100px;
+  animation-delay: -5s;
+}
+
+.blob-pink {
+  width: 300px;
+  height: 300px;
+  background: #ec4899;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation-delay: -10s;
+}
+
+@keyframes blob-float {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  25% {
+    transform: translate(50px, -50px) scale(1.1);
+  }
+  50% {
+    transform: translate(-20px, 20px) scale(0.9);
+  }
+  75% {
+    transform: translate(-50px, 50px) scale(1.05);
+  }
+} 

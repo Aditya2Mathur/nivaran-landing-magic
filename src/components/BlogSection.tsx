@@ -2,21 +2,21 @@ const blogs = [
   {
     title: "Understanding Modern Healthcare Technology",
     description: "Learn how modern technology are transforming the healthcare industry and improving patient care.",
-    image: "/lovable-uploads/1abbe896-1c84-45c2-93b7-d179f9b8e4e7.png",
+    image: "images/blogs/blog-1.png",
     category: "Technology",
     readTime: "5 min read"
   },
   {
     title: "Managing Stress in Modern Life",
     description: "Expert tips and strategies for maintaining mental health and achieving work-life balance.",
-    image: "/lovable-uploads/1abbe896-1c84-45c2-93b7-d179f9b8e4e7.png",
+    image: "images/blogs/blog-2.png",
     category: "Wellness",
     readTime: "4 min read"
   },
   {
     title: "Preventive Healthcare Guidelines",
     description: "Essential tips for maintaining good health and preventing common medical conditions.",
-    image: "/lovable-uploads/1abbe896-1c84-45c2-93b7-d179f9b8e4e7.png",
+    image: "images/blogs/blog-3.png",
     category: "Health",
     readTime: "6 min read"
   }
@@ -64,7 +64,7 @@ export const BlogSection = () => {
         </div>
         
         <div className="text-center mt-12">
-          <a href="#" className="text-primary font-medium hover:underline">
+          <a href="/blog" className="text-primary font-medium hover:underline">
             View All Articles →
           </a>
         </div>

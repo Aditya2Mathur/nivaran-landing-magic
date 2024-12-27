@@ -12,8 +12,8 @@ export const ContactSection = () => {
           <p className="text-gray-600">Have questions? We're here to help you 24/7</p>
         </div>
         
-        <div className="grid lg:grid-cols-2 gap-12">
-          <div className="animate-fade-up">
+        <div className="flex flex-col lg:flex-row justify-center items-center gap-40">
+          <div className="w-full lg:w-1/2 animate-fade-up space-y-6">
             <form className="space-y-6">
               <div className="grid md:grid-cols-2 gap-6">
                 <Input placeholder="Full Name" />
@@ -25,13 +25,13 @@ export const ContactSection = () => {
             </form>
           </div>
           
-          <div className="space-y-8 animate-fade-up">
+          <div className="lg:w-1/2 space-y-8 animate-fade-up">
             <div>
               <h3 className="text-xl font-semibold mb-4">Office Address</h3>
               <p className="text-gray-600">
                 Nivaran AI Healthcare Incorporation<br />
-                #12 Sector, Singapore<br />
-                Postcode 560073
+                 Stanza Living, E-City<br />
+                 560100, Bangalore, Karnataka, India
               </p>
             </div>
             
@@ -40,11 +40,11 @@ export const ContactSection = () => {
               <div className="space-y-4">
                 <div className="flex items-center gap-3">
                   <Phone className="w-5 h-5 text-primary" />
-                  <span className="text-gray-600">+65 7483 1750</span>
+                    <a href="tel:+919305872476" className="text-gray-600">+91 93058 72476</a>
                 </div>
                 <div className="flex items-center gap-3">
                   <Mail className="w-5 h-5 text-primary" />
-                  <span className="text-gray-600">support@nivaran.com</span>
+                    <a href="mailto:support@health.nivaran.in" className="text-gray-600">support@health.nivaran.in</a>
                 </div>
               </div>
             </div>
