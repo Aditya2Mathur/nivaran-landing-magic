@@ -7,7 +7,7 @@ export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <header className="fixed top-0 left-0 right-0 bg-white/95 backdrop-blur-sm shadow-sm z-[100]">
+    <header className="fixed top-5 left-2 right-2 md:left-10 md:right-10 bg-[#ffffff8e] backdrop-blur-sm shadow-sm z-[100] rounded-full px-4 lg:px-8 border border-white">
       <div className="container mx-auto px-4 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">

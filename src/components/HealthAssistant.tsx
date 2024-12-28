@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 
 const HealthAssistant: React.FC = () => {
   return (
-    <section className="flex flex-col items-center justify-center pb-6 bg-gradient-to-b from-[#ffffff] to-[#9cacee21] px-6">
+    <section className="flex flex-col items-center justify-center bg-gradient-to-b from-[#ffffff] to-[#9cacee21] px-6 py-20">
       <div className="text-center max-w-3xl mx-auto mb-12">
         <h1 className="text-4xl sm:text-5xl font-extrabold text-gray-900 leading-tight">
           Meet Your AI Health Assistant

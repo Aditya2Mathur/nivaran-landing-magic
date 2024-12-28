@@ -124,7 +124,7 @@ export const ContactSection = () => {
                 />
                 <Button 
                   type="submit" 
-                  className="w-full bg-primary hover:bg-primary/90 text-white"
+                  className="bg-primary hover:bg-primary/90 text-white rounded-full mx-auto"
                   disabled={isSubmitting}
                 >
                   {isSubmitting ? "Sending..." : "Send Message"}
@@ -139,7 +139,7 @@ export const ContactSection = () => {
             viewport={{ once: true }}
             className="space-y-8 h-full flex flex-col justify-between"
           >
-            <div className="bg-white p-6 rounded-xl shadow-sm">
+            <div className="bg-white/65 p-6 rounded-xl shadow-sm">
               <h3 className="text-xl font-semibold mb-4">Office Address</h3>
               <p className="text-gray-600">
                 Nivaran AI Healthcare Incorporation<br />
@@ -148,7 +148,7 @@ export const ContactSection = () => {
               </p>
             </div>
             
-            <div className="bg-white p-6 rounded-xl shadow-sm">
+            <div className="bg-white/65 p-6 rounded-xl shadow-sm">
               <h3 className="text-xl font-semibold mb-4">Contact Information</h3>
               <div className="space-y-4">
                 <div className="flex items-center gap-3">
@@ -166,7 +166,7 @@ export const ContactSection = () => {
               </div>
             </div>
             
-            <div className="bg-white p-6 rounded-xl shadow-sm">
+            <div className="bg-white/65 p-6 rounded-xl shadow-sm">
               <h3 className="text-xl font-semibold mb-4">Working Hours</h3>
               <div className="flex items-center gap-3">
                 <Clock className="w-5 h-5 text-primary" />

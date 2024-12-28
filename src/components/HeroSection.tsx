@@ -86,10 +86,11 @@ export const HeroSection = () => {
             transition={{ delay: 0.2, duration: 0.8 }}
             className="font-urbanist text-4xl sm:text-6xl md:text-7xl font-bold bg-gradient-to-r from-gray-900 to-gray-600 bg-clip-text text-transparent leading-tight"
           >
-            <span className="text-3xl sm:text-4xl font-light tracking-wide bg-gradient-to-r from-gray-800 to-gray-600 bg-clip-text text-transparent animate-fade-in">
+            <span className="text-3xl sm:text-4xl font-light tracking-wide bg-gradient-to-r from-gray-800 to-gray-600 bg-clip-text text-transparent animate-fade-in pt-5">
               Your Personal AI
             </span>
             <br />
+            <span className="block h-7"></span> {/* Add gap */}
             <span className="text-5xl sm:text-7xl font-bold tracking-tight bg-gradient-to-r from-gray-900 to-gray-600 bg-clip-text text-transparent animate-gradient">
               Health Assistant
             </span>
@@ -221,10 +222,18 @@ export const HeroSection = () => {
             transition={{ type: "spring", duration: 0.4 }}
             className="fixed inset-0 bg-white/75 backdrop-blur-md flex items-center justify-center z-[9999] pointer-events-auto"
           >
-            <button
-              onClick={() => setIsVideoVisible(false)}
-              className="absolute top-2 right-2 p-2 text-gray-500 hover:text-gray-700 transition-colors duration-200 bg-white/80 rounded-full"
+            
+            <motion.div
+              initial={{ y: -20 }}
+              animate={{ y: 0 }}
+              exit={{ y: -20 }}
+              transition={{ type: "spring", duration: 0.5 }}
+              className="relative bg-white rounded-lg overflow-hidden shadow-xl w-full max-w-3xl mx-4"
             >
+              <button
+              onClick={() => setIsVideoVisible(false)}
+              className="absolute top-2 right-2 p-2 text-gray-500 hover:text-gray-700 transition-colors duration-200 bg-white/80 rounded-full z-10"
+             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="w-6 h-6"
@@ -238,13 +247,6 @@ export const HeroSection = () => {
                 <path d="M18 6L6 18M6 6l12 12" />
               </svg>
             </button>
-            <motion.div
-              initial={{ y: -20 }}
-              animate={{ y: 0 }}
-              exit={{ y: -20 }}
-              transition={{ type: "spring", duration: 0.5 }}
-              className="relative bg-white rounded-lg overflow-hidden shadow-xl w-full max-w-3xl mx-4"
-            >
               <div className="flex justify-center items-center h-full w-full">
                 <div className="relative w-full max-w-4xl aspect-w-16 aspect-h-9 rounded-lg overflow-hidden shadow-lg">
                   <iframe
