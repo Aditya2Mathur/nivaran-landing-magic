@@ -7,7 +7,7 @@ export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <header className="fixed top-5 left-2 right-2 md:left-10 md:right-10 bg-[#ffffff8e] backdrop-blur-sm shadow-sm z-[100] rounded-full px-4 lg:px-8 border border-white">
+    <header className=" md:block fixed top-5 left-2 right-2 md:left-10 md:right-10 bg-[#ffffff8e] backdrop-blur-sm shadow-sm z-[100] rounded-full px-4 lg:px-8 border border-white">
       <div className="container mx-auto px-4 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
@@ -29,17 +29,17 @@ export const Header = () => {
             rounded-3xl md:rounded-none shadow-xl md:shadow-none
             mt-2 md:mt-0 mx-4 md:mx-0 border md:border-0`}>
             <div className="flex flex-col md:flex-row md:items-center space-y-6 md:space-y-0 md:space-x-8">
-              <Link to="/about" className="text-gray-700 hover:text-primary transition-colors duration-200 font-medium">
+              <Link to="/About" className="text-gray-700 hover:text-primary transition-colors duration-200 font-medium">
                 About
               </Link>
-              <Link to="/contact" className="text-gray-700 hover:text-primary transition-colors duration-200 font-medium">
+              <Link to="/Contact" className="text-gray-700 hover:text-primary transition-colors duration-200 font-medium">
                 Contact
               </Link>
-              <Link to="/blog" className="text-gray-700 hover:text-primary transition-colors duration-200 font-medium">
+              <Link to="/Blog" className="text-gray-700 hover:text-primary transition-colors duration-200 font-medium">
                 Blog
               </Link>
               <Button asChild className="md:ml-4 rounded-full hover:opacity-90 transition-all duration-200 font-medium">
-                <Link to="/contact">Book Appointment</Link>
+                <Link to="/Contact">Book Appointment</Link>
               </Button>
             </div>
           </nav>

@@ -66,7 +66,7 @@ export const ContactSection = () => {
   };
 
   return (
-    <section className="py-20 bg-gray-50 relative overflow-hidden">
+    <section className="py-36 bg-gray-50 relative overflow-hidden">
       <div className="container mx-auto px-4 relative z-10">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
@@ -143,8 +143,8 @@ export const ContactSection = () => {
               <h3 className="text-xl font-semibold mb-4">Office Address</h3>
               <p className="text-gray-600">
                 Nivaran AI Healthcare Incorporation<br />
-                Stanza Living, E-City<br />
-                560100, Bangalore, Karnataka, India
+                E-City, 560100<br />
+                Bangalore, Karnataka, India
               </p>
             </div>
             
@@ -160,19 +160,18 @@ export const ContactSection = () => {
                 <div className="flex items-center gap-3">
                   <Mail className="w-5 h-5 text-primary" />
                   <a href="mailto:support@health.nivaran.in" className="text-gray-600 hover:text-primary transition-colors">
-                    support@health.nivaran.in
+                    shashank@healthnivaran.in
                   </a>
                 </div>
               </div>
             </div>
             
             <div className="bg-white/65 p-6 rounded-xl shadow-sm">
-              <h3 className="text-xl font-semibold mb-4">Working Hours</h3>
+              <h3 className="text-xl font-semibold mb-4">Support</h3>
               <div className="flex items-center gap-3">
                 <Clock className="w-5 h-5 text-primary" />
                 <div className="text-gray-600">
                   24/7 AI Support<br />
-                  Office Hours: Mon - Sat 09:00 AM - 6:00 PM
                 </div>
               </div>
             </div>

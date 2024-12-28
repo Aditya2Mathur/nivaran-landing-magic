@@ -9,7 +9,7 @@ import "../styles/scrollbar.css";
 
 const About = () => {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white w-full overflow-x-hidden">
       <Helmet>
         <title>About Nivaran AI - Healthcare Innovation Through Artificial Intelligence</title>
         <meta 

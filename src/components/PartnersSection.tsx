@@ -40,7 +40,7 @@ export const PartnersSection = () => {
           <motion.h2
             initial={{ opacity: 0, y: 50 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.5 }}
+            transition={{ duration: 0.1 }}
             className="text-4xl font-bold mb-4 text-gray-800"
           >
             Our Partner Hospitals & Clinics
@@ -48,7 +48,7 @@ export const PartnersSection = () => {
           <motion.p
             initial={{ opacity: 0, y: 50 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.5, delay: 0.2 }}
+            transition={{ duration: 0.1, delay: 0.1 }}
             className="text-gray-600"
           >
             Book appointments with top healthcare facilities in your area
@@ -61,7 +61,7 @@ export const PartnersSection = () => {
               ref={ref}
               initial={{ opacity: 0, y: 50 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
+              transition={{ duration: 0.1, delay: index * 0.1 }}
               key={partner.name}
               className="bg-white rounded-xl shadow-lg overflow-hidden transform transition-transform hover:scale-105"
             >
