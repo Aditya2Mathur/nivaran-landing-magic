@@ -78,64 +78,66 @@ export const ContactSection = () => {
           <p className="text-gray-600">Have questions? We're here to help you 24/7</p>
         </motion.div>
         
-        <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
+        <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-12 items-stretch">
           <motion.div 
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="w-full space-y-6 bg-white p-8 rounded-2xl shadow-lg"
+            className="w-full h-full flex flex-col"
           >
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="grid md:grid-cols-2 gap-6">
+            <div className="bg-white p-8 rounded-2xl shadow-lg flex-grow">
+              <form onSubmit={handleSubmit} className="space-y-6 h-full flex flex-col">
+                <div className="grid md:grid-cols-2 gap-6">
+                  <Input 
+                    placeholder="Full Name" 
+                    name="fullName"
+                    value={formData.fullName}
+                    onChange={handleChange}
+                    className="bg-gray-50 border-0" 
+                    required
+                  />
+                  <Input 
+                    type="email" 
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    placeholder="Email Address" 
+                    className="bg-gray-50 border-0" 
+                    required
+                  />
+                </div>
                 <Input 
-                  placeholder="Full Name" 
-                  name="fullName"
-                  value={formData.fullName}
+                  placeholder="Subject" 
+                  name="subject"
+                  value={formData.subject}
                   onChange={handleChange}
                   className="bg-gray-50 border-0" 
                   required
                 />
-                <Input 
-                  type="email" 
-                  name="email"
-                  value={formData.email}
+                <Textarea 
+                  placeholder="Message" 
+                  name="message"
+                  value={formData.message}
                   onChange={handleChange}
-                  placeholder="Email Address" 
-                  className="bg-gray-50 border-0" 
+                  className="flex-grow bg-gray-50 border-0 min-h-[120px]" 
                   required
                 />
-              </div>
-              <Input 
-                placeholder="Subject" 
-                name="subject"
-                value={formData.subject}
-                onChange={handleChange}
-                className="bg-gray-50 border-0" 
-                required
-              />
-              <Textarea 
-                placeholder="Message" 
-                name="message"
-                value={formData.message}
-                onChange={handleChange}
-                className="h-32 bg-gray-50 border-0" 
-                required
-              />
-              <Button 
-                type="submit" 
-                className="w-full bg-primary hover:bg-primary/90 text-white"
-                disabled={isSubmitting}
-              >
-                {isSubmitting ? "Sending..." : "Send Message"}
-              </Button>
-            </form>
+                <Button 
+                  type="submit" 
+                  className="w-full bg-primary hover:bg-primary/90 text-white"
+                  disabled={isSubmitting}
+                >
+                  {isSubmitting ? "Sending..." : "Send Message"}
+                </Button>
+              </form>
+            </div>
           </motion.div>
           
           <motion.div 
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="space-y-8"
+            className="space-y-8 h-full flex flex-col justify-between"
           >
             <div className="bg-white p-6 rounded-xl shadow-sm">
               <h3 className="text-xl font-semibold mb-4">Office Address</h3>
