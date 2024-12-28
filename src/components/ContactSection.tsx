@@ -3,11 +3,71 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Phone, Mail, Clock } from "lucide-react";
 import { motion } from "framer-motion";
+import { useState } from "react";
+import { supabase } from "@/lib/supabase";
+import { useToast } from "@/components/ui/use-toast";
 
 export const ContactSection = () => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const { toast } = useToast();
+  const [formData, setFormData] = useState({
+    fullName: '',
+    email: '',
+    subject: '',
+    message: ''
+  });
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData(prev => ({
+      ...prev,
+      [e.target.name]: e.target.value
+    }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    try {
+      const { error } = await supabase
+        .from('contact_submissions')
+        .insert([
+          {
+            full_name: formData.fullName,
+            email: formData.email,
+            subject: formData.subject,
+            message: formData.message,
+            status: 'new'
+          }
+        ]);
+
+      if (error) throw error;
+
+      toast({
+        title: "Message sent successfully!",
+        description: "We'll get back to you soon.",
+      });
+
+      setFormData({
+        fullName: '',
+        email: '',
+        subject: '',
+        message: ''
+      });
+    } catch (error) {
+      toast({
+        title: "Error sending message",
+        description: "Please try again later.",
+        variant: "destructive"
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
-    <section className="py-20 bg-gray-50">
-      <div className="container mx-auto px-4">
+    <section className="py-20 bg-gray-50 relative overflow-hidden">
+      <div className="container mx-auto px-4 relative z-10">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -25,15 +85,48 @@ export const ContactSection = () => {
             viewport={{ once: true }}
             className="w-full space-y-6 bg-white p-8 rounded-2xl shadow-lg"
           >
-            <form className="space-y-6">
+            <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid md:grid-cols-2 gap-6">
-                <Input placeholder="Full Name" className="bg-gray-50 border-0" />
-                <Input type="email" placeholder="Email Address" className="bg-gray-50 border-0" />
+                <Input 
+                  placeholder="Full Name" 
+                  name="fullName"
+                  value={formData.fullName}
+                  onChange={handleChange}
+                  className="bg-gray-50 border-0" 
+                  required
+                />
+                <Input 
+                  type="email" 
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  placeholder="Email Address" 
+                  className="bg-gray-50 border-0" 
+                  required
+                />
               </div>
-              <Input placeholder="Subject" className="bg-gray-50 border-0" />
-              <Textarea placeholder="Message" className="h-32 bg-gray-50 border-0" />
-              <Button className="w-full bg-primary hover:bg-primary/90 text-white">
-                Send Message
+              <Input 
+                placeholder="Subject" 
+                name="subject"
+                value={formData.subject}
+                onChange={handleChange}
+                className="bg-gray-50 border-0" 
+                required
+              />
+              <Textarea 
+                placeholder="Message" 
+                name="message"
+                value={formData.message}
+                onChange={handleChange}
+                className="h-32 bg-gray-50 border-0" 
+                required
+              />
+              <Button 
+                type="submit" 
+                className="w-full bg-primary hover:bg-primary/90 text-white"
+                disabled={isSubmitting}
+              >
+                {isSubmitting ? "Sending..." : "Send Message"}
               </Button>
             </form>
           </motion.div>
@@ -83,6 +176,13 @@ export const ContactSection = () => {
             </div>
           </motion.div>
         </div>
+      </div>
+
+      {/* Blob animations */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        <div className="blob blob-purple"></div>
+        <div className="blob blob-blue"></div>
+        <div className="blob blob-pink"></div>
       </div>
     </section>
   );
