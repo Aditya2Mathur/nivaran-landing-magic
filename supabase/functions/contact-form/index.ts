@@ -25,7 +25,7 @@ const sendEmail = async (to: string[], subject: string, html: string) => {
       Authorization: `Bearer ${RESEND_API_KEY}`,
     },
     body: JSON.stringify({
-      from: "Nivaran AI Healthcare <onboarding@resend.dev>", // Using Resend's default domain
+      from: "Nivaran AI Healthcare <no-reply@healthnivaran.in>",
       to,
       subject,
       html,
