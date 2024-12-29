@@ -14,8 +14,13 @@ interface ContactFormData {
 }
 
 const sendEmail = async (to: string[], subject: string, html: string) => {
-  console.log('Sending email to:', to);
+  console.log('Attempting to send email to:', to);
+  console.log('Using Resend API Key:', RESEND_API_KEY ? 'Present' : 'Missing');
   
+  if (!RESEND_API_KEY) {
+    throw new Error('RESEND_API_KEY is not configured');
+  }
+
   const res = await fetch("https://api.resend.com/emails", {
     method: "POST",
     headers: {
@@ -36,7 +41,9 @@ const sendEmail = async (to: string[], subject: string, html: string) => {
     throw new Error(error);
   }
 
-  return res.json();
+  const data = await res.json();
+  console.log('Email sent successfully:', data);
+  return data;
 };
 
 export const handler = async (req: Request): Promise<Response> => {
@@ -72,22 +79,39 @@ export const handler = async (req: Request): Promise<Response> => {
     `;
 
     // Send emails in parallel
-    await Promise.all([
-      sendEmail([ADMIN_EMAIL], "New Contact Form Submission", adminEmailHtml),
-      sendEmail([formData.email], "Thank you for contacting Nivaran AI Healthcare", userEmailHtml)
-    ]);
+    try {
+      await Promise.all([
+        sendEmail([ADMIN_EMAIL], "New Contact Form Submission", adminEmailHtml),
+        sendEmail([formData.email], "Thank you for contacting Nivaran AI Healthcare", userEmailHtml)
+      ]);
 
-    return new Response(
-      JSON.stringify({ message: "Emails sent successfully" }),
-      {
-        headers: { ...corsHeaders, "Content-Type": "application/json" },
-        status: 200,
-      }
-    );
-  } catch (error) {
+      return new Response(
+        JSON.stringify({ message: "Emails sent successfully" }),
+        {
+          headers: { ...corsHeaders, "Content-Type": "application/json" },
+          status: 200,
+        }
+      );
+    } catch (emailError) {
+      console.error("Error sending emails:", emailError);
+      return new Response(
+        JSON.stringify({ 
+          error: "Failed to send emails",
+          details: emailError.message 
+        }),
+        {
+          headers: { ...corsHeaders, "Content-Type": "application/json" },
+          status: 500,
+        }
+      );
+    }
+  } catch (error: any) {
     console.error("Error processing contact form:", error);
     return new Response(
-      JSON.stringify({ error: error.message }),
+      JSON.stringify({ 
+        error: "Error processing request",
+        details: error.message 
+      }),
       {
         headers: { ...corsHeaders, "Content-Type": "application/json" },
         status: 500,
