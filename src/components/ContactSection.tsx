@@ -168,7 +168,7 @@ export const ContactSection = () => {
                 </div>
                 <div className="flex items-center gap-3">
                   <Mail className="w-5 h-5 text-primary" />
-                  <a href="mailto:support@health.nivaran.in" className="text-gray-600 hover:text-primary transition-colors">
+                  <a href="mailto:shashank@healthnivaran.in" className="text-gray-600 hover:text-primary transition-colors">
                     shashank@healthnivaran.in
                   </a>
                 </div>
