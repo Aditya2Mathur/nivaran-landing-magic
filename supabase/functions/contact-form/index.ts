@@ -1,7 +1,5 @@
-import { serve } from "https://deno.land/std@0.190.0/http/server.ts";
-
-const RESEND_API_KEY = Deno.env.get("RESEND_API_KEY");
-const ADMIN_EMAIL = "aman@healthnivaran.in";
+const RESEND_API_KEY = process.env.RESEND_API_KEY;
+const ADMIN_EMAIL = "shashankdixitiitm@gmail.com";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -41,7 +39,7 @@ const sendEmail = async (to: string[], subject: string, html: string) => {
   return res.json();
 };
 
-const handler = async (req: Request): Promise<Response> => {
+export const handler = async (req: Request): Promise<Response> => {
   // Handle CORS preflight requests
   if (req.method === "OPTIONS") {
     return new Response(null, { headers: corsHeaders });
@@ -97,5 +95,3 @@ const handler = async (req: Request): Promise<Response> => {
     );
   }
 };
-
-serve(handler);
