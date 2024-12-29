@@ -1,13 +1,12 @@
 import { serve } from "https://deno.land/std@0.190.0/http/server.ts";
-import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
+
+const RESEND_API_KEY = Deno.env.get("RESEND_API_KEY");
+const ADMIN_EMAIL = "shashank@healthnivaran.in";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
   "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
 };
-
-const RESEND_API_KEY = Deno.env.get("RESEND_API_KEY");
-const ADMIN_EMAIL = "shashank@healthnivaran.in"; // Admin email address
 
 interface ContactFormData {
   fullName: string;
@@ -17,6 +16,8 @@ interface ContactFormData {
 }
 
 const sendEmail = async (to: string[], subject: string, html: string) => {
+  console.log('Sending email to:', to);
+  
   const res = await fetch("https://api.resend.com/emails", {
     method: "POST",
     headers: {
@@ -24,7 +25,7 @@ const sendEmail = async (to: string[], subject: string, html: string) => {
       Authorization: `Bearer ${RESEND_API_KEY}`,
     },
     body: JSON.stringify({
-      from: "Nivaran AI Healthcare <no-reply@health.nivaran.in>",
+      from: "Nivaran AI Healthcare <onboarding@resend.dev>", // Using Resend's default domain
       to,
       subject,
       html,
@@ -33,6 +34,7 @@ const sendEmail = async (to: string[], subject: string, html: string) => {
 
   if (!res.ok) {
     const error = await res.text();
+    console.error('Resend API error:', error);
     throw new Error(error);
   }
 
