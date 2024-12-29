@@ -3,7 +3,7 @@ import { Footer } from "@/components/Footer";
 import { AboutHero } from "@/components/about/AboutHero";
 import { AboutMission } from "@/components/about/AboutMission";
 import { AboutJourney } from "@/components/about/AboutJourney";
-import { AboutTeam } from "@/components/about/AboutTeam";
+import { AboutFounders } from "@/components/about/AboutTeam";
 import { Helmet } from "react-helmet";
 import "../styles/scrollbar.css";
 
@@ -36,7 +36,7 @@ const About = () => {
       <AboutHero />
       <AboutMission />
       <AboutJourney />
-      <AboutTeam />
+      <AboutFounders />
       <Footer />
     </div>
   );

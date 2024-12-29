@@ -87,7 +87,7 @@ export const HeroSection = () => {
             className="font-urbanist text-4xl sm:text-6xl md:text-7xl font-bold bg-gradient-to-r from-gray-900 to-gray-600 bg-clip-text text-transparent leading-tight"
           >
             <span className="text-3xl sm:text-4xl font-light tracking-wide bg-gradient-to-r from-gray-800 to-gray-600 bg-clip-text text-transparent animate-fade-in pt-5">
-              Your Personal AI
+              Your Personal <span className="">AI</span>
             </span>
             <br />
             <span className="block h-7"></span> {/* Add gap */}
@@ -144,11 +144,12 @@ export const HeroSection = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6, duration: 0.8 }}
-            className="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4 px-4 sm:px-0"
+            className="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4 px-4 sm:px-0 items-center mt-8 sm:mt-12"
           >
             <Button
               size="lg"
               className="px-6 sm:px-8 py-5 sm:py-6 text-base sm:text-lg rounded-full bg-gray-900 hover:bg-gray-800 w-full sm:w-auto"
+              style={{ height: '56px', width: '100%', maxWidth: '200px' }}
             >
               Book Appointment
             </Button>
@@ -156,60 +157,61 @@ export const HeroSection = () => {
               variant="outline"
               size="lg"
               className="px-6 sm:px-8 py-5 sm:py-6 text-base sm:text-lg rounded-full w-full sm:w-auto"
+              style={{ height: '56px', width: '100%', maxWidth: '200px' }}
             >
               Chat with Nivaran
             </Button>
           </motion.div>
 
-          <motion.div
+            <motion.div
             style={{ y: y2 }}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.8, duration: 0.8 }}
-            className="hidden md:grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 sm:gap-8 mt-8 sm:mt-16 px-2 sm:px-0"
-          >
+           className="hidden sm:grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 sm:gap-8 mt-8 sm:mt-16 px-2 sm:px-0"
+            >
             <div className="bg-white/80 backdrop-blur-xl p-3 sm:p-4 rounded-full shadow-lg flex items-center gap-3 hover:bg-white/90 transition-all duration-200">
               <div className="bg-green-100 p-2.5 rounded-full">
-                <span className="text-2xl">🏥</span>
+              <span className="text-2xl">🏥</span>
               </div>
               <div className="text-left">
-                <p className="font-semibold text-sm sm:text-base">
-                  Apollo Hospitals
-                </p>
-                <p className="text-xs sm:text-sm text-gray-500">
-                  Premium Healthcare Partner
-                </p>
+              <p className="font-semibold text-sm sm:text-base">
+                Apollo Hospitals
+              </p>
+              <p className="text-xs sm:text-sm text-gray-500">
+                Premium Healthcare Partner
+              </p>
               </div>
             </div>
 
             <div className="bg-white/80 backdrop-blur-xl p-3 sm:p-4 rounded-full shadow-lg flex items-center gap-3 hover:bg-white/90 transition-all duration-200">
               <div className="bg-purple-100 p-2.5 rounded-full">
-                <span className="text-2xl">🤖</span>
+              <span className="text-2xl">🤖</span>
               </div>
               <div className="text-left">
-                <p className="font-semibold text-sm sm:text-base">
-                  Smart AI Analysis
-                </p>
-                <p className="text-xs sm:text-sm text-gray-500">
-                  Personalized Health Insights
-                </p>
+              <p className="font-semibold text-sm sm:text-base">
+                Smart AI Analysis
+              </p>
+              <p className="text-xs sm:text-sm text-gray-500">
+                Personalized Health Insights
+              </p>
               </div>
             </div>
 
             <div className="bg-white/80 backdrop-blur-xl p-3 sm:p-4 rounded-full shadow-lg flex items-center gap-3 hover:bg-white/90 transition-all duration-200">
               <div className="bg-blue-100 p-2.5 rounded-full">
-                <span className="text-2xl">💊</span>
+              <span className="text-2xl">💊</span>
               </div>
               <div className="text-left">
-                <p className="font-semibold text-sm sm:text-base">
-                  Pharmacy Network
-                </p>
-                <p className="text-xs sm:text-sm text-gray-500">
-                  24/7 Medicine Delivery
-                </p>
+              <p className="font-semibold text-sm sm:text-base">
+                Pharmacy Network
+              </p>
+              <p className="text-xs sm:text-sm text-gray-500">
+                24/7 Medicine Delivery
+              </p>
               </div>
             </div>
-          </motion.div>
+            </motion.div>
         </motion.div>
       </div>
 

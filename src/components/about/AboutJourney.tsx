@@ -43,11 +43,11 @@ export const AboutJourney = () => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.2 }}
-              className="flex items-center gap-8 mb-8"
+              className="flex flex-col md:flex-row items-center gap-4 md:gap-8 mb-8"
             >
-              <div className="w-24 text-xl font-bold text-primary">{milestone.year}</div>
-              <div className="flex-1 bg-white p-6 rounded-xl shadow-md">
-                <h3 className="text-xl font-semibold mb-2">{milestone.title}</h3>
+              <div className="w-full md:w-24 text-xl font-bold text-primary text-center md:text-left">{milestone.year}</div>
+              <div className="flex-1 bg-white p-4 md:p-6 rounded-xl shadow-md">
+                <h3 className="text-lg md:text-xl font-semibold mb-2">{milestone.title}</h3>
                 <p className="text-gray-600">{milestone.description}</p>
               </div>
             </motion.div>

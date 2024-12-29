@@ -1,7 +1,5 @@
 import { Brain, Calendar, HeartPulse, Stethoscope, Clock, MessageSquare } from "lucide-react";
-import { useEffect } from 'react';
-import { motion, useAnimation } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
+import { motion } from 'framer-motion';
 
 const features = [
   {
@@ -37,22 +35,14 @@ const features = [
 ];
 
 export const FeaturesSection = () => {
-  const controls = useAnimation();
-  const [ref, inView] = useInView({ triggerOnce: true });
-
-  useEffect(() => {
-    if (inView) {
-      controls.start('visible');
-    }
-  }, [controls, inView]);
-
   return (
     <section className="py-20 bg-gradient-to-l from-[#fff] via-[#9ac9ff] to-[#ffffff]">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <motion.h2
             initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
             transition={{ duration: 0.5 }}
             className="text-3xl font-bold mb-4 text-black"
           >
@@ -60,9 +50,10 @@ export const FeaturesSection = () => {
           </motion.h2>
           <motion.p
             initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-gray-00"
+            className="text-gray-600"
           >
             Transform your healthcare journey with our comprehensive suite of features
           </motion.p>
@@ -71,13 +62,9 @@ export const FeaturesSection = () => {
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {features.map((feature, index) => (
             <motion.div
-              ref={ref}
-              initial="hidden"
-              animate={controls}
-              variants={{
-                visible: { opacity: 1, y: 0 },
-                hidden: { opacity: 0, y: 50 }
-              }}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               key={feature.title}
               className="p-6 rounded-xl border border-gray-100 hover:border-primary/20 transition-colors bg-white/80"
