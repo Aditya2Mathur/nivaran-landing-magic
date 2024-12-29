@@ -1,1 +1,3 @@
 project_id = "upmachmkbnyidczocoaq"
+[functions.contact-form]
+verify_jwt = false

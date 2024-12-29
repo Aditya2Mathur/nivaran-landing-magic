@@ -29,7 +29,8 @@ export const ContactSection = () => {
     setIsSubmitting(true);
 
     try {
-      const { error } = await supabase
+      // Store submission in Supabase
+      const { error: dbError } = await supabase
         .from('contact_submissions')
         .insert([
           {
@@ -41,7 +42,14 @@ export const ContactSection = () => {
           }
         ]);
 
-      if (error) throw error;
+      if (dbError) throw dbError;
+
+      // Send emails using edge function
+      const { error: emailError } = await supabase.functions.invoke('contact-form', {
+        body: formData
+      });
+
+      if (emailError) throw emailError;
 
       toast({
         title: "Message sent successfully!",
@@ -55,6 +63,7 @@ export const ContactSection = () => {
         message: ''
       });
     } catch (error) {
+      console.error('Error submitting form:', error);
       toast({
         title: "Error sending message",
         description: "Please try again later.",
