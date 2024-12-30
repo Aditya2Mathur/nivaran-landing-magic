@@ -1,12 +1,11 @@
-const RESEND_API_KEY = process.env.RESEND_API_KEY;
-const ADMIN_EMAIL = "shashankdixitiitm@gmail.com";
+import { serve } from "https://deno.land/std@0.190.0/http/server.ts";
 
-// Updated CORS headers to be more permissive for development
+const RESEND_API_KEY = Deno.env.get("RESEND_API_KEY");
+const ADMIN_EMAIL = "shashank@healthnivaran.in";
+
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
-  "Access-Control-Allow-Methods": "POST, OPTIONS",
-  "Access-Control-Allow-Headers": "*",
-  "Access-Control-Max-Age": "86400",
+  "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
 };
 
 interface ContactFormData {
@@ -17,54 +16,38 @@ interface ContactFormData {
 }
 
 const sendEmail = async (to: string[], subject: string, html: string) => {
-  console.log('Attempting to send email to:', to);
-  console.log('Using Resend API Key:', RESEND_API_KEY ? 'Present' : 'Missing');
+  console.log('Sending email to:', to);
   
-  if (!RESEND_API_KEY) {
-    throw new Error('RESEND_API_KEY is not configured');
+  const res = await fetch("https://api.resend.com/emails", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${RESEND_API_KEY}`,
+    },
+    body: JSON.stringify({
+      from: "Nivaran AI Healthcare <no-reply@healthnivaran.in>",
+      to,
+      subject,
+      html,
+    }),
+  });
+
+  if (!res.ok) {
+    const error = await res.text();
+    console.error('Resend API error:', error);
+    throw new Error(error);
   }
 
-  try {
-    const res = await fetch("https://api.resend.com/emails", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${RESEND_API_KEY}`,
-      },
-      body: JSON.stringify({
-        from: "Nivaran AI Healthcare <no-reply@healthnivaran.in>",
-        to,
-        subject,
-        html,
-      }),
-    });
-
-    if (!res.ok) {
-      const error = await res.text();
-      console.error('Resend API error:', error);
-      throw new Error(error);
-    }
-
-    const data = await res.json();
-    console.log('Email sent successfully:', data);
-    return data;
-  } catch (error) {
-    console.error('Error in sendEmail:', error);
-    throw error;
-  }
+  return res.json();
 };
 
-export const handler = async (req: Request): Promise<Response> => {
+const handler = async (req: Request): Promise<Response> => {
   // Handle CORS preflight requests
   if (req.method === "OPTIONS") {
-    return new Response(null, {
-      headers: corsHeaders,
-      status: 204,
-    });
+    return new Response(null, { headers: corsHeaders });
   }
 
   try {
-    console.log('Received request:', req.method);
     const formData: ContactFormData = await req.json();
     console.log("Received form data:", formData);
 
@@ -91,39 +74,22 @@ export const handler = async (req: Request): Promise<Response> => {
     `;
 
     // Send emails in parallel
-    try {
-      await Promise.all([
-        sendEmail([ADMIN_EMAIL], "New Contact Form Submission", adminEmailHtml),
-        sendEmail([formData.email], "Thank you for contacting Nivaran AI Healthcare", userEmailHtml)
-      ]);
+    await Promise.all([
+      sendEmail([ADMIN_EMAIL], "New Contact Form Submission", adminEmailHtml),
+      sendEmail([formData.email], "Thank you for contacting Nivaran AI Healthcare", userEmailHtml)
+    ]);
 
-      return new Response(
-        JSON.stringify({ message: "Emails sent successfully" }),
-        {
-          headers: { ...corsHeaders, "Content-Type": "application/json" },
-          status: 200,
-        }
-      );
-    } catch (emailError) {
-      console.error("Error sending emails:", emailError);
-      return new Response(
-        JSON.stringify({ 
-          error: "Failed to send emails",
-          details: emailError instanceof Error ? emailError.message : String(emailError)
-        }),
-        {
-          headers: { ...corsHeaders, "Content-Type": "application/json" },
-          status: 500,
-        }
-      );
-    }
+    return new Response(
+      JSON.stringify({ message: "Emails sent successfully" }),
+      {
+        headers: { ...corsHeaders, "Content-Type": "application/json" },
+        status: 200,
+      }
+    );
   } catch (error) {
     console.error("Error processing contact form:", error);
     return new Response(
-      JSON.stringify({ 
-        error: "Error processing request",
-        details: error instanceof Error ? error.message : String(error)
-      }),
+      JSON.stringify({ error: error.message }),
       {
         headers: { ...corsHeaders, "Content-Type": "application/json" },
         status: 500,
@@ -131,3 +97,5 @@ export const handler = async (req: Request): Promise<Response> => {
     );
   }
 };
+
+serve(handler);

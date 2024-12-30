@@ -18,6 +18,9 @@ export default {
       },
     },
     extend: {
+      backgroundImage: {
+        'small-radial': 'radial-gradient(circle at center, #9ac9ff 1%, #ffffff 50%)',
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",

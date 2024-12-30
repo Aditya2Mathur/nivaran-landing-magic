@@ -103,8 +103,7 @@ export const HeroSection = () => {
             transition={{ delay: 0.4, duration: 0.8 }}
             className="text-gray-600 text-base sm:text-xl max-w-2xl mx-auto px-4 sm:px-0"
           >
-            Use AI to find and manage the best health coverage for your business
-            needs and budget.
+           Empowering Better Healthcare Through <span className="font-bold italic">24/7</span> AI-Driven Support
           </motion.p>
           <div className="flex justify-center mt-8">
             <motion.button

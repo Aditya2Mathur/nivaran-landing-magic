@@ -44,7 +44,7 @@
 
 /* Add modern styles */
 body {
-  font-family: 'Arial', sans-serif; /* Use a modern font */
+  font-family: 'Source Sans Pro', sans-serif;
   background-color: #f8f9fa; /* Light background for a clean look */
   color: #343a40; /* Dark text for contrast */
   transition: background-color 0.3s ease; /* Smooth background transition */

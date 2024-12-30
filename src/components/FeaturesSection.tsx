@@ -36,7 +36,7 @@ const features = [
 
 export const FeaturesSection = () => {
   return (
-    <section className="py-20 bg-gradient-to-l from-[#fff] via-[#9ac9ff] to-[#ffffff]">
+    <section className="py-20 bg-small-radial">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <motion.h2

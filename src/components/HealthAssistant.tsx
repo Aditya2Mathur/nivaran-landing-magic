@@ -24,9 +24,9 @@ const HealthAssistant: React.FC = () => {
             transition={{ duration: 0.3 }}
           >
             <img
-              src="icon-1.svg"
+              src="/images/blogs/blog-1.png"
               alt="Advanced AI Understanding Icon"
-              className="w-12 h-12"
+              className=" w-12 h-12 rounded-full "
             />
             <div>
               <h3 className="text-lg font-semibold text-gray-800">
@@ -47,9 +47,9 @@ const HealthAssistant: React.FC = () => {
             transition={{ duration: 0.3 }}
           >
             <img
-              src="icon-2.svg"
+              src="/images/blogs/blog-2.png"
               alt="Medical Report Analysis Icon"
-              className="w-12 h-12"
+              className="w-12 h-12 rounded-full"
             />
             <div>
               <h3 className="text-lg font-semibold text-gray-800">
@@ -69,9 +69,9 @@ const HealthAssistant: React.FC = () => {
             transition={{ duration: 0.3 }}
           >
             <img
-              src="icon-3.svg"
+              src="/images/blogs/blog-1.png"
               alt="Private & Secure Icon"
-              className="w-12 h-12"
+              className="w-12 h-12 rounded-full"
             />
             <div>
               <h3 className="text-lg font-semibold text-gray-800">

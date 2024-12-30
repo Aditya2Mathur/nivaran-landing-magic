@@ -18,7 +18,7 @@ export const Footer = () => {
                 <FaXTwitter className="w-5 h-5" />
               </a>
               <a href="#" className="text-gray-400 hover:text-primary transition-colors">
-                <FaLinkedinIn className="w-5 h-5" />
+                <FaLinkedinIn className="w-5 h-5" /> 
               </a>
               <a href="#" className="text-gray-400 hover:text-primary transition-colors">
                 <FaInstagram className="w-5 h-5" />
@@ -47,10 +47,10 @@ export const Footer = () => {
           <div>
             <h3 className="text-lg font-semibold mb-4">Contact Info</h3>
             <ul className="space-y-2 text-gray-400">
-              <li>Nivaran AI Healthcare</li>
-              <li>#12 Sector, Singapore</li>
-              <li>support@nivaran.com</li>
-              <li>+65 7483 1750</li>
+              <li>Nivaran AI Healthcare Incorporation</li>
+              <li>E-City, 560100</li>
+              <a href="mailto:shashank@healthnivaran.in"> <li >shashank@healthnivaran.in</li></a>
+              <a href="tel:+919305872476"><li>+91 93058 72476</li></a>
             </ul>
           </div>
         </div>
