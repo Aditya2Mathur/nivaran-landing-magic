@@ -13,11 +13,15 @@ import NotFound from "./pages/errors/NotFound";
 import ErrorPage from "./pages/errors/ErrorPage";
 import ComingSoon from "./pages/ComingSoon";
 import { ErrorBoundary } from "react-error-boundary";
+import { SpeedInsights } from "@vercel/speed-insights/react"
+import { Analytics } from "@vercel/analytics/react"
 
 const queryClient = new QueryClient();
 
 const App = () => (
   <div>
+    <SpeedInsights />
+    <Analytics />
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
         <Toaster />

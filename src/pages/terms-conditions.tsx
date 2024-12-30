@@ -13,7 +13,7 @@ const TermsAndConditions = () => {
             Terms and Conditions
           </h1>
           <p className="mt-2 text-lg text-gray-600">
-            MagnumKare's AI Healthcare Assistant (Nivaran)
+            Health Nivaran's AI Healthcare Assistant (Nivaran)
           </p>
         </div>
 
@@ -22,7 +22,7 @@ const TermsAndConditions = () => {
             <section className="mb-8">
               <h2 className="text-xl font-semibold text-gray-900 mb-4">1. Introduction</h2>
               <p className="text-gray-700">
-                Welcome to Nivaran, an AI-powered healthcare assistant provided by MagnumKare. By using our service through WhatsApp, you agree to the following terms and conditions. Please read them carefully. If you do not agree, please discontinue using the service immediately.
+                Welcome to Nivaran, an AI-powered healthcare assistant provided by Health Nivaran. By using our service through WhatsApp, you agree to the following terms and conditions. Please read them carefully. If you do not agree, please discontinue using the service immediately.
               </p>
             </section>
 
@@ -68,7 +68,7 @@ const TermsAndConditions = () => {
             <section className="mb-8">
               <h2 className="text-xl font-semibold text-gray-900 mb-4">5. Data Privacy and Monitoring</h2>
               <ul className="space-y-3 text-gray-700">
-                <li><span className="font-medium">Data Monitoring:</span> MagnumKare monitors user chats to train and improve Nivaran's AI.</li>
+                <li><span className="font-medium">Data Monitoring:</span> Health Nivaran monitors user chats to train and improve Nivaran's AI.</li>
                 <li><span className="font-medium">Data Use:</span> No personal health data is sold or shared with third parties.</li>
               </ul>
             </section>
@@ -78,8 +78,8 @@ const TermsAndConditions = () => {
               <div className="bg-gray-50 p-4 rounded-lg">
                 <p className="text-gray-700">For queries or assistance:</p>
                 <ul className="mt-2 space-y-2 text-gray-700">
-                  <li>Email: <a href="mailto:shashank@magnumkare.com" className="text-blue-600">shashank@magnumkare.com</a></li>
-                  <li>Phone (Technical Help Only): <a href="tel:+919305872476" className="text-blue-600">+91 9305872476</a></li>
+                  <li>Email: <a href="mailto:shashank@healthnivaran.com" className="text-blue-600">shashank@healthnivaran.in</a></li>
+                  <li>Phone (Technical Help Only): <a href="tel:+919305872476" className="text-blue-600">+91 93058 72476</a></li>
                 </ul>
               </div>
             </section>
