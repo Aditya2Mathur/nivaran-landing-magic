@@ -9,7 +9,7 @@ export const Testimonials = () => {
       author: "Aditi Verma",
       title: "Patient",
       location: "Bihar",
-      image: "https://via.placeholder.com/150/FFB6C1/000000?text=Aditi", // Replace with actual image URL
+      image: "/avatar.png", 
     },
     {
       rating: 4.8,
@@ -17,7 +17,7 @@ export const Testimonials = () => {
       author: "Rahul Mehta",
       title: "Healthcare Professional",
       location: "Mumbai",
-      image: "https://via.placeholder.com/150/ADD8E6/000000?text=Rahul", // Replace with actual image URL
+      image: "/avatar.png", 
     },
     {
       rating: 4.9,
@@ -25,7 +25,7 @@ export const Testimonials = () => {
       author: "Sneha Rao",
       title: "Regular User",
       location: "Bangalore",
-      image: "https://via.placeholder.com/150/90EE90/000000?text=Sneha", // Replace with actual image URL
+      image: "/avatar.png",
     },
   ];
 
