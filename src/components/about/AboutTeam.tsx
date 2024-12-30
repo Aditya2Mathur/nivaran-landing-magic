@@ -190,7 +190,7 @@ export const AboutFounders = () => {
                 </span>
               </motion.h2>
               <p className="text-lg text-gray-600 max-w-xl">
-                Dr. Sarah Mitchell, founder of Nivaran, has dedicated her career to revolutionizing healthcare accessibility through technology.
+                Mr. Shashank Dixit, founder of Nivaran, has dedicated her career to revolutionizing healthcare accessibility through technology.
               </p>
             </div>
 
@@ -205,7 +205,7 @@ export const AboutFounders = () => {
               <blockquote className="pl-8 pt-6 italic text-gray-700">
                 "Our mission goes beyond providing healthcare solutions. We're building a future where quality healthcare is a right, not a privilege. Through AI and technology, we're making this vision a reality."
               </blockquote>
-              <p className="mt-4 pl-8 font-semibold text-gray-900">Dr. Sarah Mitchell</p>
+              <p className="mt-4 pl-8 font-semibold text-gray-900">Mr. Shashank Dixit</p>
               <p className="pl-8 text-sm text-gray-600">Founder & CEO, Nivaran Health</p>
             </motion.div>
 
@@ -272,7 +272,7 @@ export const AboutFounders = () => {
                   Looking ahead, we're committed to pushing the boundaries of what's possible in healthcare. Whether it's leveraging advanced AI for early disease detection or creating more personalized treatment plans, our goal remains the same: making quality healthcare accessible to everyone."
                 </p>
               </div>
-              <p className="text-blue-600 font-semibold pt-4">Dr. Sarah Mitchell</p>
+              <p className="text-blue-600 font-semibold pt-4">Mr. Shashank Dixit</p>
             </div>
           </div>
         </motion.div>
