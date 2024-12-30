@@ -84,7 +84,7 @@ const ComingSoon = () => {
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50">
       <Header />
       
-      <main className="py-28 sm:py-12 md:py-16 px-4 sm:px-6 lg:px-8 overflow-hidden">
+      <main className="py-32 sm:py-12 md:py-16 px-4 sm:px-6 lg:px-8 overflow-hidden">
         <div className="max-w-6xl mx-auto">
           {/* Hero Section */}
           <motion.div
