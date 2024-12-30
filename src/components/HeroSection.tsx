@@ -1,28 +1,34 @@
 import { Button } from "@/components/ui/button";
 import { Play } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
-import { AnimatePresence, motion, useScroll, useTransform } from "framer-motion";
+import {
+  AnimatePresence,
+  motion,
+  useScroll,
+  useTransform,
+} from "framer-motion";
 import { FaPlay } from "react-icons/fa"; // Import Play icon
+import { Link } from "react-router-dom";
 
 export const HeroSection = () => {
   const { scrollY } = useScroll();
   const [isVideoVisible, setIsVideoVisible] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
-  
+
   const y1 = useTransform(scrollY, [0, 600], [0, -100], { clamp: true });
   const y2 = useTransform(scrollY, [0, 600], [0, -150], { clamp: true });
   const opacity = useTransform(scrollY, [0, 400], [1, 0], { clamp: true });
 
   useEffect(() => {
     if (isVideoVisible) {
-      document.body.style.overflow = 'hidden';
+      document.body.style.overflow = "hidden";
     } else {
-      document.body.style.overflow = 'unset';
+      document.body.style.overflow = "unset";
     }
-    
+
     return () => {
-      document.body.style.overflow = 'unset';
+      document.body.style.overflow = "unset";
     };
   }, [isVideoVisible]);
 
@@ -103,7 +109,8 @@ export const HeroSection = () => {
             transition={{ delay: 0.4, duration: 0.8 }}
             className="text-gray-600 text-base sm:text-xl max-w-2xl mx-auto px-4 sm:px-0"
           >
-           Empowering Better Healthcare Through <span className="font-bold italic">24/7</span> AI-Driven Support
+            Empowering Better Healthcare Through{" "}
+            <span className="font-bold italic">24/7</span> AI-Driven Support
           </motion.p>
           <div className="flex justify-center mt-8">
             <motion.button
@@ -148,69 +155,69 @@ export const HeroSection = () => {
             <Button
               size="lg"
               className="px-6 sm:px-8 py-5 sm:py-6 text-base sm:text-lg rounded-full bg-gray-900 hover:bg-gray-800 w-full sm:w-auto"
-              style={{ height: '56px', width: '100%', maxWidth: '200px' }}
+              style={{ height: "56px", width: "100%", maxWidth: "200px" }}
             >
-              Book Appointment
+             <Link to="/ComingSoon" > Book Appointment</Link>
             </Button>
             <Button
               variant="outline"
               size="lg"
               className="px-6 sm:px-8 py-5 sm:py-6 text-base sm:text-lg rounded-full w-full sm:w-auto"
-              style={{ height: '56px', width: '100%', maxWidth: '200px' }}
+              style={{ height: "56px", width: "100%", maxWidth: "200px" }}
             >
               Chat with Nivaran
             </Button>
           </motion.div>
 
-            <motion.div
+          <motion.div
             style={{ y: y2 }}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.8, duration: 0.8 }}
-           className="hidden sm:grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 sm:gap-8 mt-8 sm:mt-16 px-2 sm:px-0"
-            >
+            className="hidden sm:grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 sm:gap-8 mt-8 sm:mt-16 px-2 sm:px-0"
+          >
             <div className="bg-white/80 backdrop-blur-xl p-3 sm:p-4 rounded-full shadow-lg flex items-center gap-3 hover:bg-white/90 transition-all duration-200">
               <div className="bg-green-100 p-2.5 rounded-full">
-              <span className="text-2xl">🏥</span>
+                <span className="text-2xl">🏥</span>
               </div>
               <div className="text-left">
-              <p className="font-semibold text-sm sm:text-base">
-                Apollo Hospitals
-              </p>
-              <p className="text-xs sm:text-sm text-gray-500">
-                Premium Healthcare Partner
-              </p>
+                <p className="font-semibold text-sm sm:text-base">
+                  Apollo Hospitals
+                </p>
+                <p className="text-xs sm:text-sm text-gray-500">
+                  Premium Healthcare Partner
+                </p>
               </div>
             </div>
 
             <div className="bg-white/80 backdrop-blur-xl p-3 sm:p-4 rounded-full shadow-lg flex items-center gap-3 hover:bg-white/90 transition-all duration-200">
               <div className="bg-purple-100 p-2.5 rounded-full">
-              <span className="text-2xl">🤖</span>
+                <span className="text-2xl">🤖</span>
               </div>
               <div className="text-left">
-              <p className="font-semibold text-sm sm:text-base">
-                Smart AI Analysis
-              </p>
-              <p className="text-xs sm:text-sm text-gray-500">
-                Personalized Health Insights
-              </p>
+                <p className="font-semibold text-sm sm:text-base">
+                  Smart AI Analysis
+                </p>
+                <p className="text-xs sm:text-sm text-gray-500">
+                  Personalized Health Insights
+                </p>
               </div>
             </div>
 
             <div className="bg-white/80 backdrop-blur-xl p-3 sm:p-4 rounded-full shadow-lg flex items-center gap-3 hover:bg-white/90 transition-all duration-200">
               <div className="bg-blue-100 p-2.5 rounded-full">
-              <span className="text-2xl">💊</span>
+                <span className="text-2xl">💊</span>
               </div>
               <div className="text-left">
-              <p className="font-semibold text-sm sm:text-base">
-                Pharmacy Network
-              </p>
-              <p className="text-xs sm:text-sm text-gray-500">
-                24/7 Medicine Delivery
-              </p>
+                <p className="font-semibold text-sm sm:text-base">
+                  Pharmacy Network
+                </p>
+                <p className="text-xs sm:text-sm text-gray-500">
+                  24/7 Medicine Delivery
+                </p>
               </div>
             </div>
-            </motion.div>
+          </motion.div>
         </motion.div>
       </div>
 
@@ -223,7 +230,6 @@ export const HeroSection = () => {
             transition={{ type: "spring", duration: 0.4 }}
             className="fixed inset-0 bg-white/75 backdrop-blur-md flex items-center justify-center z-[9999] pointer-events-auto"
           >
-            
             <motion.div
               initial={{ y: -20 }}
               animate={{ y: 0 }}
@@ -232,30 +238,31 @@ export const HeroSection = () => {
               className="relative bg-white rounded-lg overflow-hidden shadow-xl w-full max-w-3xl mx-4"
             >
               <button
-              onClick={() => setIsVideoVisible(false)}
-              className="absolute top-2 right-2 p-2 text-gray-500 hover:text-gray-700 transition-colors duration-200 bg-white/80 rounded-full z-10"
-             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="w-6 h-6"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
+                onClick={() => setIsVideoVisible(false)}
+                className="absolute top-2 right-2 p-2 text-gray-500 hover:text-gray-700 transition-colors duration-200 bg-white/80 rounded-full z-10"
               >
-                <path d="M18 6L6 18M6 6l12 12" />
-              </svg>
-            </button>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="w-6 h-6"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path d="M18 6L6 18M6 6l12 12" />
+                </svg>
+              </button>
               <div className="flex justify-center items-center h-full w-full">
                 <div className="relative w-full max-w-4xl aspect-w-16 aspect-h-9 rounded-lg overflow-hidden shadow-lg">
                   <iframe
                     className="w-full h-[30rem] rounded-lg justify-center items-center"
-                    src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-                    title="YouTube video player"
+                    src="https://www.youtube.com/embed/c1zOFQpmCXc?si=PfIKengy5nOWQ8lg&autoplay=1&mute=1&vq=hd1080"
+                    title="Nivaran AI Health Assistant Demo Video"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen
+                    loading="lazy"
                   />
                 </div>
               </div>

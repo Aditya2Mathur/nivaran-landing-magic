@@ -39,7 +39,7 @@ export const Header = () => {
                 Blog
               </Link>
               <Button asChild className="md:ml-4 rounded-full hover:opacity-90 transition-all duration-200 font-medium">
-                <Link to="/Contact">Book Appointment</Link>
+                <Link to="/ComingSoon">Book Appointment</Link>
               </Button>
             </div>
           </nav>

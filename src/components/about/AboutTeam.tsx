@@ -1,34 +1,34 @@
 // AboutFounder.jsx
-import React from 'react';
-import { motion } from 'framer-motion';
-import { Quote, ArrowRight } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import { motion } from "framer-motion";
+import { Quote, ArrowRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Img } from 'react-image';
 
 export const AboutFounders = () => {
   // Previous data structures remain the same
   const founderStats = [
-    { label: 'Years Experience', value: '15+' },
-    { label: 'Healthcare Projects', value: '100+' },
-    { label: 'Team Members', value: '50+' },
-    { label: 'Satisfied Clients', value: '10k+' },
+    { label: "Years Experience", value: "3+" },
+    { label: "Healthcare Projects", value: "8+" },
+    { label: "Team Members", value: "5+" },
+    { label: "Satisfied Clients", value: "5k+" },
   ];
 
   const achievements = [
     {
-      year: '2020',
-      title: 'Healthcare Innovation Award',
-      organization: 'Digital Health Academy'
+      year: "2021",
+      title: "Full-stack Developer",
+      organization: "Maven Consultant and Construction Pvt. Ltd",
     },
     {
-      year: '2021',
-      title: 'Top 40 Under 40',
-      organization: 'Business Today'
+      year: "2022",
+      title: "Full-stack Developer",
+      organization: "PlanEasy",
     },
     {
-      year: '2022',
-      title: 'Excellence in Healthcare',
-      organization: 'Tech Innovation Summit'
-    }
+      year: "2023",
+      title: "Tech lead",
+      organization: "Growth4x",
+    },
   ];
 
   // Animation variants for the blobs
@@ -54,22 +54,22 @@ export const AboutFounders = () => {
       <div className="absolute inset-0 -z-10">
         {/* Gradient Background */}
         <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-purple-50 opacity-90" />
-        
+
         {/* Animated Blobs */}
         <motion.div
           variants={blobVariants}
           initial="initial"
           animate="animate"
           className="absolute top-0 left-0 w-[600px] h-[600px] rounded-full bg-gradient-to-r from-blue-200/30 to-purple-200/30 blur-3xl"
-          style={{ transform: 'translate(-50%, -50%)' }}
+          style={{ transform: "translate(-50%, -50%)" }}
         />
-        
+
         <motion.div
           variants={blobVariants}
           initial="initial"
           animate="animate"
           className="absolute bottom-0 right-0 w-[600px] h-[600px] rounded-full bg-gradient-to-l from-blue-200/30 to-purple-200/30 blur-3xl"
-          style={{ transform: 'translate(50%, 50%)' }}
+          style={{ transform: "translate(50%, 50%)" }}
           transition={{ delay: 1 }}
         />
 
@@ -104,9 +104,12 @@ export const AboutFounders = () => {
         </div>
 
         {/* Grid Pattern */}
-        <div 
+        <div
           className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"
-          style={{ maskImage: 'radial-gradient(circle at center, transparent 50%, black 100%)' }}
+          style={{
+            maskImage:
+              "radial-gradient(circle at center, transparent 50%, black 100%)",
+          }}
         />
       </div>
 
@@ -125,13 +128,14 @@ export const AboutFounders = () => {
               {/* Decorative elements behind image */}
               <div className="absolute -inset-4 bg-gradient-to-r from-blue-100 to-purple-100 rounded-2xl blur-lg opacity-60" />
               <div className="relative aspect-[4/5] rounded-2xl overflow-hidden bg-gradient-to-br from-white to-gray-100 p-1">
-                <img
-                  src="/images/blogs/blog-1.png"
-                  alt="Founder"
-                  className="w-full h-full object-cover rounded-xl"
-                />
+              <Img
+                src="/founder.jpg"
+                alt="Founder of the company"
+                className="w-full h-full object-cover rounded-xl"
+                loader={<div>Loading...</div>}
+              />
               </div>
-              
+
               {/* Stats Grid with enhanced styling */}
               <div className="absolute -right-8 -bottom-8">
                 <motion.div
@@ -176,7 +180,7 @@ export const AboutFounders = () => {
           >
             {/* Section Title with enhanced styling */}
             <div className="space-y-4">
-              <motion.h2 
+              <motion.h2
                 className="text-4xl font-bold"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -190,7 +194,8 @@ export const AboutFounders = () => {
                 </span>
               </motion.h2>
               <p className="text-lg text-gray-600 max-w-xl">
-                Mr. Shashank Dixit, founder of Nivaran, has dedicated her career to revolutionizing healthcare accessibility through technology.
+                Mr. Shashank Dixit, founder of Nivaran, has dedicated her career
+                to revolutionizing healthcare accessibility through technology.
               </p>
             </div>
 
@@ -203,14 +208,21 @@ export const AboutFounders = () => {
             >
               <Quote className="absolute -left-4 -top-4 h-8 w-8 text-blue-400 opacity-50" />
               <blockquote className="pl-8 pt-6 italic text-gray-700">
-                "Our mission goes beyond providing healthcare solutions. We're building a future where quality healthcare is a right, not a privilege. Through AI and technology, we're making this vision a reality."
+                "Our mission goes beyond providing healthcare solutions. We're
+                building a future where quality healthcare is a right, not a
+                privilege. Through AI and technology, we're making this vision a
+                reality."
               </blockquote>
-              <p className="mt-4 pl-8 font-semibold text-gray-900">Mr. Shashank Dixit</p>
-              <p className="pl-8 text-sm text-gray-600">Founder & CEO, Nivaran Health</p>
+              <p className="mt-4 pl-8 font-semibold text-gray-900">
+                Mr. Shashank Dixit
+              </p>
+              <p className="pl-8 text-sm text-gray-600">
+                Founder & CEO, Nivaran Health
+              </p>
             </motion.div>
 
             {/* Enhanced Achievements Section */}
-            <div className="space-y-4 pt-6">
+            {/* <div className="space-y-4 pt-6">
               <h3 className="text-lg font-semibold text-gray-900">Recent Achievements</h3>
               <div className="space-y-4">
                 {achievements.map((achievement, index) => (
@@ -233,13 +245,11 @@ export const AboutFounders = () => {
                   </motion.div>
                 ))}
               </div>
-            </div>
+            </div> */}
 
             {/* Enhanced CTA */}
             <div className="pt-6">
-              <Button
-                className="group text-lg px-8 py-6 rounded-full bg-gradient-to-r bg-gray-800 text-white transition-all duration-300 shadow-lg hover:shadow-xl"
-              >
+              <Button className="group text-lg px-8 py-6 rounded-full bg-gradient-to-r bg-gray-800 text-white transition-all duration-300 shadow-lg hover:shadow-xl">
                 Meet the Team
                 <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
               </Button>
@@ -263,16 +273,29 @@ export const AboutFounders = () => {
               </h3>
               <div className="space-y-4 text-gray-600 text-lg">
                 <p>
-                  "When I started Nivaran, I saw a healthcare system that was increasingly complex and disconnected. Many struggled to navigate insurance, find the right specialists, and access quality care. I knew technology could bridge these gaps.
+                  "When I started Nivaran, I saw a healthcare system that was
+                  increasingly complex and disconnected. Many struggled to
+                  navigate insurance, find the right specialists, and access
+                  quality care. I knew technology could bridge these gaps.
                 </p>
                 <p>
-                  Our AI-powered platform isn't just about convenience – it's about creating a healthcare ecosystem that understands and adapts to each person's unique needs. We're combining human expertise with artificial intelligence to make healthcare more intuitive, accessible, and effective.
+                  Our AI-powered platform isn't just about convenience – it's
+                  about creating a healthcare ecosystem that understands and
+                  adapts to each person's unique needs. We're combining human
+                  expertise with artificial intelligence to make healthcare more
+                  intuitive, accessible, and effective.
                 </p>
                 <p>
-                  Looking ahead, we're committed to pushing the boundaries of what's possible in healthcare. Whether it's leveraging advanced AI for early disease detection or creating more personalized treatment plans, our goal remains the same: making quality healthcare accessible to everyone."
+                  Looking ahead, we're committed to pushing the boundaries of
+                  what's possible in healthcare. Whether it's leveraging
+                  advanced AI for early disease detection or creating more
+                  personalized treatment plans, our goal remains the same:
+                  making quality healthcare accessible to everyone."
                 </p>
               </div>
-              <p className="text-blue-600 font-semibold pt-4">Mr. Shashank Dixit</p>
+              <p className="text-blue-600 font-semibold pt-4">
+                Mr. Shashank Dixit
+              </p>
             </div>
           </div>
         </motion.div>

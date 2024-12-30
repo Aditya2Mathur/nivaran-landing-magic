@@ -4,7 +4,7 @@ export const Footer = () => {
   return (
     <footer className="bg-[#111828] text-white border-t">
       <div className="container mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 pb-6">
           <div>
             <h3 className="text-lg font-semibold mb-4">Nivaran AI</h3>
             <p className="text-gray-400 mb-4">
@@ -32,6 +32,7 @@ export const Footer = () => {
               <li><a href="/" className="text-gray-400 hover:text-primary transition-colors">Home</a></li>
               <li><a href="/about" className="text-gray-400 hover:text-primary transition-colors">About Us</a></li>
               <li><a href="/contact" className="text-gray-400 hover:text-primary transition-colors">Contact</a></li>
+              <li><a href="/terms-conditions" className="text-gray-400 hover:text-primary transition-colors">Terms and Conditions</a></li>
             </ul>
           </div>
           
@@ -55,8 +56,9 @@ export const Footer = () => {
           </div>
         </div>
         
-        <div className="border-t mt-12 pt-8 text-center text-gray-400">
-          <p>&copy; {new Date().getFullYear()} Nivaran AI. All rights reserved.</p>
+        <div className="border-t pt-6 text-center text-white">
+          <p>&copy; {new Date().getFullYear()} Nivaran. All rights reserved. Made in India, for the world.</p>
+          <p className="text-center mt-5 text-sm text-gray-500">Disclaimer: Nivaran is a health information platform and its responses don't constitute medical advice. Always consult with a licensed medical professional near you before making any changes.</p>
         </div>
       </div>
     </footer>

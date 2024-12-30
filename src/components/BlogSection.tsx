@@ -1,3 +1,5 @@
+import { Img } from "react-image";
+
 const blogs = [
   {
     title: "Understanding Modern Healthcare Technology",
@@ -44,7 +46,7 @@ export const BlogSection = () => {
               className="block rounded-xl overflow-hidden border border-gray-100 hover:border-primary/20 transition-all animate-fade-up"
               style={{ animationDelay: `${index * 100}ms` }}
             >
-              <img
+              <Img
                 src={blog.image}
                 alt={blog.title}
                 className="w-full h-48 object-cover"

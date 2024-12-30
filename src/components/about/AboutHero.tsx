@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { FaPlay } from "react-icons/fa";
+import { Img } from "react-image";
 
 export const AboutHero = () => {
   const [isVideoVisible, setIsVideoVisible] = useState(false);
@@ -64,7 +65,7 @@ export const AboutHero = () => {
               <FaPlay className="w-4 h-4 sm:w-6 sm:h-6 text-blue-500" />
             </motion.button>
           </div>
-          <img
+          <Img
             src="https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?q=80&w=2091&auto=format&fit=crop"
             alt="Advanced Healthcare Technology at Nivaran AI"
             className="w-full h-full object-cover z-0"
@@ -118,12 +119,13 @@ export const AboutHero = () => {
             </button>
               <div className="flex justify-center items-center h-full w-full">
                 <div className="relative w-full max-w-4xl aspect-w-16 aspect-h-9 rounded-lg overflow-hidden shadow-lg">
-                  <iframe
+                <iframe
                     className="w-full h-[30rem] rounded-lg justify-center items-center"
-                    src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-                    title="YouTube video player"
+                    src="https://www.youtube.com/embed/c1zOFQpmCXc?si=PfIKengy5nOWQ8lg&autoplay=1&mute=1&vq=hd1080"
+                    title="Nivaran AI Health Assistant Demo Video"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen
+                    loading="lazy"
                   />
                 </div>
               </div>

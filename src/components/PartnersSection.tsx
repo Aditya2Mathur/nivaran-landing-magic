@@ -1,6 +1,7 @@
 import { Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
+import { Img } from 'react-image';
 
 const partners = [
   {
@@ -64,7 +65,7 @@ export const PartnersSection = () => {
               key={partner.name}
               className="bg-white rounded-xl shadow-lg overflow-hidden transform transition-transform hover:scale-105"
             >
-              <img 
+              <Img 
                 src={partner.image} 
                 alt={partner.name}
                 className="w-full h-48 object-cover"
